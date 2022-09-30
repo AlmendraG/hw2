@@ -4,8 +4,9 @@
 #include <string>
 #include <iostream>
 #include <set>
+#include <vector>
 
-
+using namespace std;
 /** Complete the setIntersection and setUnion functions below
  *  in this header file (since they are templates).
  *  Both functions should run in time O(n*log(n)) and not O(n^2)
@@ -14,19 +15,43 @@ template <typename T>
 std::set<T> setIntersection(std::set<T>& s1, std::set<T>& s2)
 {
 
+	set<T> intersection;
 
+	/* adding all the elements in s2 that are the same as elements in s1 */
+	for( typename set<T>::iterator it = s1.begin(); it != s1.end(); ++it)
+	{
+		//if you find the item in s2, add it to the intersection set 
+		//ignoring the end  
+		if( s2.find(*it) != s2.end() )
+		{
+			intersection.insert(*it);
+		}
+	}
 
-
-
+	return intersection;
 }
 template <typename T>
 std::set<T> setUnion(std::set<T>& s1, std::set<T>& s2)
 {
+	set<T> unions;
 
+	//adding all the elements in s1 
+	for( typename set<T>::iterator it1 = s1.begin(); it1 != s1.end(); ++it1)
+	{
+		unions.insert(*it1);
+	}
 
+	//adding all elements in s2 - ignoring repeats from s1 
+	for( typename set<T>::iterator it2 = s2.begin(); it2 != s2.end(); ++it2)
+	{
+		//if element is not found it returns a pointer to position after the last element in set (set.end)
+		if(unions.find(*it2) == unions.end() )
+		{
+			unions.insert(*it2);
+		}
+	}
 
-
-
+	return unions;
 }
 
 /***********************************************/
