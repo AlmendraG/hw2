@@ -28,8 +28,8 @@ set<string> Clothing::keywords() const
 string Clothing::displayString() const
 {
 	//creating a string to store all the constant data fields for books 
-	string info = name_ + "\n" + "Brand: " + brand_ + " " 
-		+ "Size: " + size_ + "\n";
+	string info = name_ + "\n" + "Size: " + size_ + " " 
+		+ "Brand: " + brand_ + "\n";
 
 	//price and quantity variables 
 	//temporary variables to check price and quantity 

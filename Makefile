@@ -22,7 +22,13 @@ product_parser.o: product_parser.cpp product_parser.h product.h
 	$(CXX) $(CXXFLAGS) $(DEFS) -o $@ -c product_parser.cpp
 util.o: util.cpp util.h
 	$(CXX) $(CXXFLAGS) $(DEFS) -o $@ -c util.cpp
-
-
+book.o: book.cpp book.h user.h product.h util.h 
+	$(CXX) $(CXXFLAGS) $(DEFS) -o $@ -c book.cpp
+clothing.o: clothing.cpp clothing.h util.h product.h user.h
+	$(CXX) $(CXXFLAGS) $(DEFS) -o $@ -c clothing.cpp
+movie.o: movie.cpp movie.h util.h product.h user.h
+	$(CXX) $(CXXFLAGS) $(DEFS) -o $@ -c movie.cpp
+mydatastore.o: mydatastore.h mydatastore.cpp datastore.h util.h user.h product.h 
+	$(CXX) $(CXXFLAGS) $(DEFS) -o $@ -c mydatastore.cpp
 clean:
 	rm -f *.o amazon
